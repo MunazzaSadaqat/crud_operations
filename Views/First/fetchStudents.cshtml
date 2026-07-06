@@ -1,0 +1,36 @@
+﻿@using crud_operations.Models;
+
+@model List<Student>
+
+
+<h1>Student List</h1>
+
+<table border="3">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Qualification</th>
+            <th>Student Contact</th>
+            <th>Student City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var std in Model)
+        {
+            <tr>
+                <td>@std.Id</td>
+                <td>@std.Name</td>
+                <td>@std.Qualification</td>
+                <td>@std.Contact</td>
+                <td>@std.City</td>
+                <td>
+                    <a href="@Url.Action("deleteStudent","First",new{id=std.Id})">
+                        <button>Delete</button>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
